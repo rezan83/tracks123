@@ -62,7 +62,7 @@ const gatherCarrierData = (arr) => {
     travelled_distance: 0,
     weight: 0,
     fuel_consumed: 0,
-    intencity: 0,
+    total_intencity: 0,
     shipments: arr.length,
   };
   return arr.reduce((acc, cur) => {
@@ -71,13 +71,13 @@ const gatherCarrierData = (arr) => {
     acc.travelled_distance += cur.travelled_distance;
     acc.fuel_consumed += cur.fuel_consumed;
     acc.weight += cur.weight;
-    acc.intencity += 
+    acc.total_intencity += 
       cur.total_co2_emitted / cur.weight / cur.travelled_distance;
     return acc;
   }, initialCarrierData);
 };
 
-// adding final ifos like intencity
+// adding final ifos like intencity_factor
 export const _prepareCarrierData = (grouped) => {
   let carrierData = { ...grouped };
   for (let key in carrierData) {
@@ -86,7 +86,7 @@ export const _prepareCarrierData = (grouped) => {
     carrierData[key].av_weight =
       carrierData[key].weight / carrierData[key].shipments;
     carrierData[key].intencity_factor =
-      (carrierData[key].intencity / carrierData[key].shipments)*1000;
+      (carrierData[key].total_intencity / carrierData[key].shipments)*1000;
 
   }
   return carrierData;

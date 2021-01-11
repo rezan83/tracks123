@@ -1,8 +1,8 @@
 <template>
   <div class="dashboard">
     <Sidebar />
-    <div id="main-section">
 
+    <div id="main-section">
       <h2>CO2 Analytics</h2>
 
       <table>
@@ -58,6 +58,7 @@ export default {
   }, 
   computed: {    
     sortedCarrierData() {
+      
       return Object.entries(this.getCarrierData()).sort((a,b) => {
         let sortDir = (this.sortDesc*2 -1);
         return (a[1][this.currentSort] - b[1][this.currentSort]) * sortDir
@@ -71,36 +72,40 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "@/assets/css/variables.scss";
+
 .dashboard {
   display: flex;
 
   #main-section {
-    flex: 4;
+    flex: 11;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px;
+    margin-right: 20px;
     table {
       border-collapse: collapse;
-      width: 100%;
-      color: #fff;
+      width: 90%;
+      color: $main-text-color;
       border: 0px;
     }
     th {
-      background-color: #001A26;
-      color: rgb(207, 205, 205);
-      padding: 10px;
-      min-width: 50px;
+      background-color: $base-dark;
+      padding: 5px;
+      width: 40px;
       cursor: pointer;
       div{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
       }
+      &:hover{
+          background-color: $clicable-blue
+        }
       
     }
     .active-sort{
-      background-color: #2f64c7;
+      background-color: $clicable-blue;
       .arrow-image{
         visibility: visible;
       }
@@ -113,25 +118,25 @@ export default {
       transform: rotate(180deg);
     }
     tr{
-      background-color: #42b1b9;
+      background-color: $secondary-green;
+      height: 50px;
       &:hover{
         opacity: 0.8;
       }
       .carrier-name{
         cursor: pointer;
         &:hover{
-          background-color: #2f64c7
+          background-color: $clicable-blue
         }
       }
       td{
-        padding: 10px;
+        padding: 5px;
+        text-align: left;
       }
     }
     
   }
 }
-h3 {
-  margin: 40px 0 0;
-}
+
 
 </style>

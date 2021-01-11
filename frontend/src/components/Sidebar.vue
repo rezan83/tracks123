@@ -2,7 +2,6 @@
     <div id="sidebar">
         <filters />
         <img id="filter-icon" src="../assets/filter.svg" alt="filter icon">
-        
     </div>
 </template>
 
@@ -18,46 +17,52 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+
+@import "@/assets/css/variables.scss";
+
 #sidebar {
-    flex: 3;
+    flex: 1;
     display: flex;
-    // flex-direction: column;
-    padding: 10px;
-    min-height: 100vh;
+    padding: 5px;
+    min-height: 80vh;
     min-width: 150px;
-    // max-width: 150px;
-    flex-grow: 1;
-    background-color: #001A26;
+    background-color: $base-dark;
     justify-content: left;
     transition: 500ms;
     transform: translateX(-150px);
     &:hover{
        transform: translateX(0px);
-       flex: 4;
+       flex: 11;
+       min-width: 40vw;
     }
     #filter-icon{
-        min-width: 50px;
+        min-width: 40px;
         height: 30px;
-        background-color: #001A26;
-        transform: translate(20px, 150px);
+        background-color: $base-dark;
+        border-radius: 5px;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-right: 10px solid ;
+        transform: translate(25px, 150px);
         animation: shake 3s cubic-bezier(.36,.07,.19,.97);
         animation-iteration-count: infinite;
+       
     }
     @keyframes shake {
         10%, 90% {
-            transform: translate(22px, 151px);
+            transform: translate(calc( 10px + 2px ), 150px);
         }
         
         20%, 80% {
-            transform: translate(18px, 149px);
+            transform: translate(calc( 10px - 2px ), 150px);
         }
 
         30%, 50%, 70% {
-            transform: translate(24px, 151px);
+            transform: translate(calc( 10px + 4px ), 150px);
         }
 
         40%, 60% {
-            transform: translate(16px, 149px);
+            transform: translate(calc( 10px - 4px ), 150px);
         }
     }
    

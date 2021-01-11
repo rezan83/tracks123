@@ -69,16 +69,19 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+
+@import "@/assets/css/variables.scss";
+
 #filters {
     display: flex;
     flex-direction: column;
     text-align: left;
-    color: rgb(143, 143, 143);
+    color: $secondary-text-color;
     width: 90%;
  form{
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 100%;
     input {
             width: 90%;
             height: 25px;
@@ -91,7 +94,8 @@ export default {
         width: 90%;
         margin-top: 20px;
         height: 30px;
-        background-color: #00A295;
+        color: $main-text-color;
+        background-color: $base-green;
         border: none;
         text-transform: uppercase;
         font-weight: 600;
@@ -99,8 +103,7 @@ export default {
         outline: none;
         cursor: pointer;
         &.danger{
-            color: rgb(143, 143, 143);
-            background-color: #9d00a2;
+            background-color: $danger;
         }
     }
     label{
@@ -112,7 +115,7 @@ export default {
         margin-top: 20px;
 
         &.warning{
-            color: rgb(255, 72, 72);
+            color: $danger;
         }
     }
  }
