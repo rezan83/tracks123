@@ -42,6 +42,7 @@ export default {
   Name: 'Filters',
   data(){
       return{
+        //   sort filters locally before commiting them
         filters: {...defaultFilters},
         timeCorrect: true
     }
@@ -50,10 +51,8 @@ export default {
         setFilters () {
             if ((new Date(this.filters.start_time)) >=
                 (new Date(this.filters.end_time))) {
-                    console.log("wrong")
                 this.timeCorrect = false
             } else {
-                console.log(this.filters)
                 this.timeCorrect = true
                 this.$store.commit('setFilters', this.filters)
             }
@@ -61,7 +60,6 @@ export default {
         resetFilters(){
             this.timeCorrect = true
             this.filters = {...defaultFilters}
-            console.log("reset", this.filters)
             this.$store.commit('setFilters', {...defaultFilters})
         }
     }

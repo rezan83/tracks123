@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions} from "vuex";
+import { mapGetters} from "vuex";
 import Sidebar from "@/components/Sidebar";
 export default {
   name: "Dashboard",
@@ -40,12 +40,12 @@ export default {
   data(){
     return{
       ...mapGetters(["getCarrierData"]),
-      currentSort:'carrier_company_id',
-      sortDesc:true
+      currentSort: 'carrier_company_id',
+      sortDesc: true
     }
   },
   methods: {
-    ...mapActions(["fetchShipments"]),
+
     sort(s){
       if(s === this.currentSort) {
         this.sortDesc = !this.sortDesc
@@ -56,18 +56,16 @@ export default {
       this.$router.push({ name: 'Carrier', params: { carrierId } }) // -> /carrier/1
     }
   }, 
-  computed: {    
+  computed: {   
+    // this function will run automatically after sort() changes something 
     sortedCarrierData() {
-      
       return Object.entries(this.getCarrierData()).sort((a,b) => {
         let sortDir = (this.sortDesc*2 -1);
         return (a[1][this.currentSort] - b[1][this.currentSort]) * sortDir
       });
     }
   },
-  created() {
-    this.fetchShipments()
-  }
+
 };
 </script>
 

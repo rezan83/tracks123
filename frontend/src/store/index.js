@@ -2,6 +2,7 @@ import { createStore } from "vuex";
 import {shipments} from "./shipments";
 export default createStore({
   state: {
+    // just a fake login for fun
     userName: "",
   },
   getters: {

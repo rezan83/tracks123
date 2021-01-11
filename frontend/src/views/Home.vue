@@ -29,8 +29,11 @@ export default {
     userName() {return this.$store.state.userName}
   },
   methods: {
-    ...mapActions(["logUser"])
-    
+    ...mapActions(["logUser","fetchShipments"])
+  },
+  created() {
+    // data is fetched when this component is created
+    this.fetchShipments()
   }
 };
 </script>
