@@ -1,7 +1,10 @@
 <template>
-    <div id="sidebar">
+    <div class="sidebar" :class="{ 'sidebar-open': isSidebarOpen}">
         <filters />
-        <img id="filter-icon" src="../assets/filter.svg" alt="filter icon">
+        <img @click="toggleSidebar" 
+            class="filter-icon"
+            :class="{ 'filter-icon-open': isSidebarOpen}" 
+            src="../assets/filter.svg" alt="filter icon">
     </div>
 </template>
 
@@ -13,6 +16,16 @@ export default {
   components: {
     Filters,
   },
+  data(){
+        return{
+            isSidebarOpen: false
+        }
+    },
+    methods: {
+        toggleSidebar(){
+            this.isSidebarOpen = !this.isSidebarOpen
+        }
+    }
 };
 </script>
 
@@ -20,7 +33,9 @@ export default {
 
 @import "@/assets/css/variables.scss";
 
-#sidebar {
+
+
+.sidebar {
     flex: 1;
     display: flex;
     padding: 5px;
@@ -30,41 +45,36 @@ export default {
     justify-content: left;
     transition: 500ms;
     transform: translateX(-150px);
-    &:hover{
-       transform: translateX(0px);
-       flex: 11;
-       min-width: 40vw;
-    }
-    #filter-icon{
-        min-width: 40px;
+    
+    .filter-icon{
+        width: 50px;
         height: 30px;
         background-color: $base-dark;
         border-radius: 5px;
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         border-right: 10px solid ;
-        transform: translate(25px, 150px);
+        transform: translate(18px, 400px);
         animation: shake 3s cubic-bezier(.36,.07,.19,.97);
         animation-iteration-count: infinite;
-       
+    }
+    .filter-icon-open{
+        background-color: $clicable-blue;
     }
     @keyframes shake {
-        10%, 90% {
-            transform: translate(calc( 10px + 2px ), 150px);
-        }
-        
         20%, 80% {
-            transform: translate(calc( 10px - 2px ), 150px);
+            transform: translate(calc( 10px - 2px ), 400px);
         }
 
         30%, 50%, 70% {
-            transform: translate(calc( 10px + 4px ), 150px);
-        }
-
-        40%, 60% {
-            transform: translate(calc( 10px - 4px ), 150px);
+            transform: translate(calc( 10px + 4px ), 400px);
         }
     }
    
+}
+.sidebar-open{
+    transform: translateX(0px);
+    flex: 11;
+    min-width: 300px;
 }
 </style>

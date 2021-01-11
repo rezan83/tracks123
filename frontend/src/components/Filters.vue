@@ -78,46 +78,48 @@ export default {
     text-align: left;
     color: $secondary-text-color;
     width: 90%;
- form{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    input {
+    margin-left: 10px;
+    form{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        input {
             width: 90%;
-            height: 25px;
+            height: 35px;
             border-radius: 5px;
             box-sizing: border-box;
             outline: none;
             padding: 5px;
+            }
+        button {
+            width: 90%;
+            margin-top: 20px;
+            height: 30px;
+            color: $main-text-color;
+            background-color: $base-green;
+            border: none;
+            text-transform: uppercase;
+            font-weight: 600;
+            border-radius: 10px;
+            outline: none;
+            cursor: pointer;
+            &.danger{
+                background-color: $danger;
+            }
         }
-    button {
-        width: 90%;
-        margin-top: 20px;
-        height: 30px;
-        color: $main-text-color;
-        background-color: $base-green;
-        border: none;
-        text-transform: uppercase;
-        font-weight: 600;
-        border-radius: 10px;
-        outline: none;
-        cursor: pointer;
-        &.danger{
-            background-color: $danger;
+        label{
+            margin-left: 10px;
+            margin-top: 20px;
         }
-    }
-    label{
-        margin-left: 10px;
-        margin-top: 20px;
-    }
-    p {
-        margin-left: 10px;
-        margin-top: 20px;
+        p {
+            margin-left: 10px;
+            margin-top: 20px;
 
-        &.warning{
-            color: $danger;
+            &.warning{
+                margin-top: 40px;
+                color: $danger;
+            }
         }
-    }
- }
+    }   
 }
 </style>
