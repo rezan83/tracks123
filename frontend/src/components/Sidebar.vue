@@ -47,13 +47,14 @@ export default {
     transform: translateX(-150px);
     
     .filter-icon{
-        width: 50px;
+        min-width: 50px;
         height: 30px;
         background-color: $base-dark;
         border-radius: 5px;
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         border-right: 10px solid ;
+        cursor: pointer;
         transform: translate(18px, 400px);
         animation: shake 3s cubic-bezier(.36,.07,.19,.97);
         animation-iteration-count: infinite;

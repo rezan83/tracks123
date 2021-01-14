@@ -53,7 +53,7 @@ export default {
             display: flex;
             padding: 0 20px;
             flex-grow: 2;
-            justify-content: end; 
+            justify-content: flex-end; 
             align-items: center;
             .router-link-active{
                 text-shadow: 

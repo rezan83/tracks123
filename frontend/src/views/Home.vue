@@ -39,6 +39,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+@import "@/assets/css/variables.scss";
+
 .home {
   display: flex;
   flex-direction: column;
@@ -49,9 +52,13 @@ export default {
     flex-direction: column;
     width: 50%;
     margin-top: 50px;
-    button{
-      margin-top: 5px;
+    input {
+        @include them-input;
     }
+    button {
+      @include them-button($main-text-color, $base-green);
+    }
+    
   }
 }
 </style>

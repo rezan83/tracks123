@@ -82,25 +82,12 @@ export default {
         flex-direction: column;
         width: 100%;
         input {
-            width: 90%;
-            height: 35px;
-            border-radius: 5px;
-            box-sizing: border-box;
-            outline: none;
-            padding: 5px;
-            }
+            @include them-input;
+        }
         button {
-            width: 90%;
+            @include them-button($main-text-color, $base-green);
             margin-top: 20px;
-            height: 30px;
-            color: $main-text-color;
-            background-color: $base-green;
-            border: none;
-            text-transform: uppercase;
-            font-weight: 600;
-            border-radius: 10px;
-            outline: none;
-            cursor: pointer;
+   
             &.danger{
                 background-color: $danger;
             }

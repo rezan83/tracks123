@@ -23,10 +23,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+@import "@/assets/css/variables.scss";
+
 .carrier {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin-top: 10%;
+  align-items: center;
+  .content{
+    margin-top: 10%;
+    button {
+      @include them-button($main-text-color, $base-green);
+    }
+  }
 }
 </style>

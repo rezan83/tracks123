@@ -1,3 +1,4 @@
+// variables
 $base-dark: #001a26;
 $base-green: #00a295;
 $secondary-green: #42b1b9;
@@ -5,3 +6,29 @@ $danger: #9d00a2;
 $clicable-blue: #2f64c7;
 $main-text-color: #fff;
 $secondary-text-color: #8f8f8f;
+
+// mixins
+
+@mixin them-button($color, $background-color) {
+        width: 90%;
+        margin-top: 20px;
+        height: 30px;
+        color: $color;
+        background-color: $background-color;
+        border: none;
+        text-transform: uppercase;
+        font-weight: 600;
+        border-radius: 5px;
+        outline: none;
+        cursor: pointer;
+        margin-top: 5px;
+    }
+@mixin them-input {
+        width: 90%;
+        height: 35px;
+        border-radius: 5px;
+        box-sizing: border-box;
+        outline: none;
+        padding: 5px;
+    }
+
